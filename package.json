@@ -1,0 +1,41 @@
+{
+  "name": "xd-sentry-javascript-bundler-plugins",
+  "version": "0.0.0",
+  "description": "Sentry Bundler Plugins Monorepo.",
+  "repository": "git://github.com/getsentry/sentry-javascript-bundler-plugins.git",
+  "homepage": "https://github.com/getsentry/sentry-javascript-bundler-plugins",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "nx run-many --target=build --all",
+    "build:watch": "nx run-many --target=build:watch --all",
+    "build:graph": "nx graph",
+    "build:npm": "nx run-many --target=build:npm --all",
+    "check:types": "nx run-many --target=check:types --all",
+    "clean": "nx run-many --target=clean --all",
+    "clean:all": "nx run-many --target=clean:all --all && yarn",
+    "test": "nx run-many --target=test --all --exclude=@sentry-internal/bundler-plugin-e2e-tests",
+    "test:all": "nx run-many --target=test --all",
+    "test:unit": "nx run-many --target=test --all --exclude=@sentry-internal/integration-tests,@sentry-internal/bundler-plugin-e2e-tests",
+    "test:integration": "nx run @sentry-internal/integration-tests:test",
+    "test:e2e": "nx run @sentry-internal/bundler-plugin-e2e-tests:test",
+    "lint": "nx run-many --target=lint --all",
+    "check:formatting": "prettier --check .",
+    "fix:formatting": "prettier --write ."
+  },
+  "devDependencies": {
+    "@nrwl/cli": "14.5.10",
+    "@nrwl/workspace": "14.5.10",
+    "lerna": "^6.6.2",
+    "nx": "14.5.10",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
+    "npm-run-all": "^4.1.5"
+  },
+  "volta": {
+    "node": "14.21.2",
+    "yarn": "1.22.19"
+  }
+}

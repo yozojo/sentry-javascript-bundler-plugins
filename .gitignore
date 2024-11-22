@@ -1,0 +1,9 @@
+node_modules
+yarn-error.log
+
+.vscode/settings.json
+.idea
+
+*.tgz
+
+.nxcache
